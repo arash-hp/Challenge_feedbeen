@@ -1,13 +1,11 @@
 'use client';
 import { memo } from 'react';
-import { Box, Button, AppBar as MUI_AppBar, Toolbar, Typography } from '@mui/material';
+import { Box, Button, Container, AppBar as MUI_AppBar, Toolbar, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import { Container } from '../../components';
-import { styles } from './styles';
 
 const navItems = [
   { label: 'Home', path: '/' },
-  { label: 'Products', path: '/Products' },
+  { label: 'Products', path: '/products' },
 ];
 
 const AppBar = () => {
@@ -17,12 +15,12 @@ const AppBar = () => {
     <MUI_AppBar component="nav" position="sticky">
       <Container>
         <Toolbar>
-          <Box sx={styles.logo}>
+          <Box sx={{ flex: 1 }}>
             <Typography>LOGO</Typography>
           </Box>
           <Box>
             {navItems.map((item, index) => (
-              <Button key={index} sx={styles.button} onClick={() => router.push(item.path)}>
+              <Button key={index} sx={{ color: 'white' }} onClick={() => router.push(item.path)}>
                 {item.label}
               </Button>
             ))}
